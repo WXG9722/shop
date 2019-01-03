@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <van-nav-bar title="首页" class="nav-title">
       <van-icon name="search" slot="left"></van-icon>
-      <van-icon name="cart" slot="right"></van-icon>
+      <van-icon @click="$router.push('/profile')" slot="right">{{userInfo.userName}}</van-icon>
     </van-nav-bar>
     <!-- 轮播图 -->
     <div class="carousel">
@@ -45,6 +45,7 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from 'axios'
 import url from '@/service.config.js'
+import {mapState} from 'vuex'
 export default {
   data(){
     return {
@@ -318,9 +319,11 @@ export default {
     let url4 = 'http://www.weichuang.com/list';
     let url5 = url.getVarietyItem;
     axios.get(url5).then(res=>{
-      console.log(res)
       this.varietyItem = res.data;
-    })
+    });
+  },
+  computed: {
+    ...mapState(['userInfo'])
   }
 }
 </script>

@@ -8,8 +8,9 @@ Vue.config.productionTip = false
 import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
 
-import {NavBar, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload, Button} from 'vant'
-Vue.use(NavBar).use(Icon).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload).use(Button)
+// 按需引入 推荐
+import {Toast, CellGroup, Field, Tab, Tabs, NavBar, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload, Button} from 'vant'
+Vue.use(Toast).use(CellGroup).use(Field).use(Tab).use(Tabs).use(NavBar).use(Icon).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload).use(Button)
 
 import '@/mock/mock.js'
 
