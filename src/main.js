@@ -9,8 +9,8 @@ import '@/assets/css/reset.css'
 import '@/assets/js/rem.js'
 
 // 按需引入 推荐
-import {Toast, CellGroup, Field, Tab, Tabs, NavBar, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload, Button} from 'vant'
-Vue.use(Toast).use(CellGroup).use(Field).use(Tab).use(Tabs).use(NavBar).use(Icon).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload).use(Button)
+import {PullRefresh, List, Row, Col, Toast, CellGroup, Field, Tab, Tabs, NavBar, Icon, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload, Button} from 'vant'
+Vue.use(PullRefresh).use(List).use(Row).use(Col).use(Toast).use(CellGroup).use(Field).use(Tab).use(Tabs).use(NavBar).use(Icon).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload).use(Button)
 
 import '@/mock/mock.js'
 
