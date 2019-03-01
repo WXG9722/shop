@@ -13,7 +13,7 @@
         <van-col span="18" class="container">
           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
             <van-list class="content" @load="onLoad" v-model="isLoading" :finished="finished">
-              <div class="content-item" v-for="(item, index) in productList" :key="index">
+              <div @click="goDetail(item._id)" class="content-item" v-for="(item, index) in productList" :key="index">
                 <img :src="item.img" alt="">
                 <p class="content-item-name">{{item.name}}</p>
                 <p>￥{{item.price}}</p>
@@ -94,6 +94,23 @@ export default {
         this.productList = [];
         this.getProductList();
       },2000)
+    },
+    goDetail(id){
+      // this.$router.push({
+      //   name: 'detail',
+      //   params: {
+      //     id: id
+      //   }
+      // });
+
+      // this.$router.push({
+      //   path: '/detail',
+      //   query: {
+      //     id: id
+      //   }
+      // });
+      
+      this.$router.push(`/detail/${id}`);
     }
   }
 }

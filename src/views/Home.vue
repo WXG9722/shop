@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <van-nav-bar title="首页" class="nav-title">
       <van-icon name="search" slot="left"></van-icon>
-      <van-icon @click="$router.push('/profile')" slot="right">{{userInfo.userName}}</van-icon>
+      <van-icon @click="$router.push('/profile')" slot="right">{{JSON.stringify(userInfo) === '{}' ? '未登录' : userInfo.userName}}</van-icon>
     </van-nav-bar>
     <!-- 轮播图 -->
     <div class="carousel">
@@ -313,12 +313,13 @@ export default {
     swiperSlide
   },
   created(){
-    let url1 = 'http://www.weichuang.com/getList';
-    let url2 = 'http://www.weichuang.com/getUser';
-    let url3 = 'http://www.weichuang.com/regexp';
-    let url4 = 'http://www.weichuang.com/list';
+    // let url1 = 'http://www.weichuang.com/getList';
+    // let url2 = 'http://www.weichuang.com/getUser';
+    // let url3 = 'http://www.weichuang.com/regexp';
+    // let url4 = 'http://www.weichuang.com/list';
     let url5 = url.getVarietyItem;
     axios.get(url5).then(res=>{
+      console.log(res)
       this.varietyItem = res.data;
     });
   },
@@ -328,7 +329,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container{
   background-color: #eee;
 }
@@ -358,12 +359,15 @@ export default {
     padding-left: 0.2rem;
     line-height: 0.5rem;
     box-sizing: border-box;
-    margin-top: 0.2rem;
   }
   &-swiper{
     &-content{
       width: 2rem;
       text-align: center;
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
 }
