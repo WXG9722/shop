@@ -11,6 +11,7 @@ let Profile = () => import('./views/Profile.vue')
 import Ajax from './views/Ajax.vue'
 import Detail from './views/Detail.vue'
 import FooterBar from './components/FooterBar.vue'
+import Error from './views/Error.vue'
 
 Vue.use(Router)
 
@@ -65,6 +66,9 @@ export default new Router({
       path: '/detail/:id',
       name: 'detail',
       component: Detail
+    },{
+      path: '*',
+      component: Error
     }
   ]
 })
