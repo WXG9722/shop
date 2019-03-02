@@ -319,7 +319,6 @@ export default {
     // let url4 = 'http://www.weichuang.com/list';
     let url5 = url.getVarietyItem;
     axios.get(url5).then(res=>{
-      console.log(res)
       this.varietyItem = res.data;
     });
   },
