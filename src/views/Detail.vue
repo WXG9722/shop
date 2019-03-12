@@ -64,7 +64,6 @@ export default {
                         userId: this.userInfo._id
                     }
                 }).then(res=>{
-                    // console.log(res);
                     if(res.data.code == 200){
                         this.$toast.success(res.data.message)
                     }
@@ -72,7 +71,7 @@ export default {
                     console.log(err);
                 })
             }
-        }
+        },
     }
 }
 </script>

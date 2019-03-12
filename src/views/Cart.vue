@@ -32,6 +32,7 @@ export default {
     }
   },
   created(){
+    console.log('haha')
     // 验证用户是否登录
     if(JSON.stringify(this.userInfo) === '{}'){
       this.$toast.fail('请先登录');
@@ -49,18 +50,46 @@ export default {
         for(let item of res.data){
           this.productList.push(item.productId);
         }
+        console.log(this.productList)
       }).catch(err=>{
         console.log(err);
       })
     }
   },
   methods: {
+    showCart(){
+      axios({
+        url: url.getCart,
+        method: 'get',
+        params: {
+          userId: this.userInfo._id
+        }
+      }).then(res=>{
+        for(let item of res.data){
+          this.productList.push(item.productId);
+        }
+      }).catch(err=>{
+        console.log(err);
+      })
+    },
     onSubmit(){
       this.$toast.success('进入付款页面')
     },
     delCart(id, index){
       // 删除数据库中的数据（自行完成），如果删除成功，进入回调函数，在回调函数中如下代码
-      this.productList.splice(index, 1);
+      axios({
+        url: url.delCart,
+        method: 'post',
+        data: {
+          productId: id,
+        }
+      }).then(res=>{
+        if(res.data.code == 200){
+          this.$toast.success(res.data.message)
+          this.productList.splice(index, 1)
+        }
+      })
+      
     }
   }
 }

@@ -10,6 +10,7 @@ const URL = {
     getProductsByType: SERVERURL + 'product/getProductsByType',
     getDetail: SERVERURL + 'product/getDetail',
     addCart: SERVERURL + 'cart/addCart',
+    delCart: SERVERURL + 'cart/delCart',
     getCart: SERVERURL + 'cart/getCart'
 };
 
