@@ -8,7 +8,6 @@ let Home = () => import('./views/Home.vue')
 let Category = () => import('./views/Category.vue')
 let Cart = () => import('./views/Cart.vue')
 let Profile = () => import('./views/Profile.vue')
-import Ajax from './views/Ajax.vue'
 import Detail from './views/Detail.vue'
 import FooterBar from './components/FooterBar.vue'
 import Error from './views/Error.vue'
@@ -58,10 +57,6 @@ export default new Router({
       meta: {
         keepAlive: false
       }
-    },{
-      path: '/ajax',
-      name: 'ajax',
-      component: Ajax
     },{
       path: '/detail/:id',
       name: 'detail',
